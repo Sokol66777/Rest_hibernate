@@ -21,11 +21,13 @@ import java.util.Set;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Column(name = "name",unique = true,nullable = false)
-    private String username;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "name",unique = true,nullable = false)
+    private String username;
 
     @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private Set <Post> posts=new HashSet<>();

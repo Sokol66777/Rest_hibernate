@@ -15,7 +15,6 @@ public class BaseDAO<T> implements DAO<T>{
     @Getter
     protected EntityManager entityManager;
 
-
     @Override
     public T get(long id) {
         return entityManager.find(clazz,id);
@@ -24,7 +23,6 @@ public class BaseDAO<T> implements DAO<T>{
     @Transactional
     @Override
     public void add(T t){
-
         entityManager.persist(t);
     }
 }
